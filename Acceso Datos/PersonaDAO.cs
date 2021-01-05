@@ -10,10 +10,10 @@ namespace Acceso_Datos
 {
     public class PersonaDAO
     {
-        private static String cadenaConexion = @"server=ENRIQUE\SQLEXPRESS; database=Estudiantes; integrated security=true";
+        private static String cadenaConexion = @"server=DESKTOP-SM0G3LP\SQLEXPRESS; database=Estudiantes; integrated security=true";
         public static int crear(Personas personas)
         {
-            string cadenaConexion = @"Server=ENRIQUE\SQLEXPRESS; database=Estudiantes; integrated security=true";
+            string cadenaConexion = @"Server=DESKTOP-SM0G3LP\SQLEXPRESS; database=Estudiantes; integrated security=true";
             SqlConnection conexion = new SqlConnection(cadenaConexion);
             string sql = "insert into Personas(cedula, apellidos, nombres, sexo, F_Nacimiento, correo, estatura, peso) values(@cedula, @apellidos, @nombres, @sexo, @F_Nacimiento, @correo, @estatura, @peso)";
             SqlCommand comando = new SqlCommand(sql, conexion);
@@ -33,7 +33,7 @@ namespace Acceso_Datos
         }
         public static int actualizar(Personas personas)
         {
-            string cadenaConexion = @"Server=ENRIQUE\SQLEXPRESS; database=Estudiantes; integrated security=true";
+            string cadenaConexion = @"Server=DESKTOP-SM0G3LP\SQLEXPRESS; database=Estudiantes; integrated security=true";
             SqlConnection conexion = new SqlConnection(cadenaConexion);
             string sql = "update Personas set  apellidos=@apellidos, nombres=@nombres, sexo=@sexo, F_Nacimiento=@F_Nacimiento, " +
                  "correo=@correo, estatura=@estatura, peso=@peso " + " where cedula=@cedula";
@@ -56,7 +56,7 @@ namespace Acceso_Datos
         }
         public static int eliminar(string Cedula)
         {
-            string cadenaConexion = @"Server=ENRIQUE\SQLEXPRESS; database=Estudiantes; integrated security=true";
+            string cadenaConexion = @"Server=DESKTOP-SM0G3LP\SQLEXPRESS; database=Estudiantes; integrated security=true";
             SqlConnection conexion = new SqlConnection(cadenaConexion);
             string sql = "delete from Personas"  + " where cedula=@cedula";
             SqlCommand comando = new SqlCommand(sql, conexion);
@@ -71,7 +71,7 @@ namespace Acceso_Datos
         }
         public static DataTable getAll()
         {
-            string cadenaConexion = @"Server=ENRIQUE\SQLEXPRESS; database=Estudiantes; integrated security=true";
+            string cadenaConexion = @"Server=DESKTOP-SM0G3LP\SQLEXPRESS; database=Estudiantes; integrated security=true";
             SqlConnection conexion = new SqlConnection(cadenaConexion);
             string sql = "select cedula, apellidos, nombres,upper(apellidos +' '+ nombres) as estudiante , case when sexo='M' then 'Masculino' else 'Femenino' end as sexo, F_Nacimiento, correo, estatura, peso" + " from Personas order by apellidos, nombres";
             SqlDataAdapter ad = new SqlDataAdapter(sql, conexion);
